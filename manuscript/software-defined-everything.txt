@@ -4,6 +4,14 @@ Feedback loops are a core principle of Continuous Delivery. They keep us aware o
 
 Now that the software landscape seems to be shifting away from manually provisioned hardware and more towards the ubiquitous “Cloud” (through Platform-as-a-Service/Infrastructure-as-a-Service providers), it’s becoming far easier to easily set up these feedback mechanisms in our pipeline.
 
-During a talk at Extreme Programmers London, [Colin Humphreys](https://twitter.com/hatofmonkeys) talked about this concept in detail using his PaaS experiences and named it as “Software-Defined Everything” - via simple APIs and tools we're able to fold everything from the commit point to production feedback into our software development pipeline.
+During a talk at Extreme Programmers London, [Colin Humphreys](https://twitter.com/hatofmonkeys) talked about this concept in detail using his PaaS experiences and named it as “Software-Defined Everything” or SDE - via simple APIs and tools we're able to fold everything from the commit point to production feedback into our software development pipeline.
 
-So how do we take advantage of all these services?
+As with all things, SDE does not solve problems by trying to force it wherever we can; it's more useful for us to outline problems that SDE can solve.
+
+## Testing in Production with Weighted DNS
+
+All applications eventually need to make that step from Development to Production and it can be huge leap, filled with ceremony and ritual, or it can be as simple as walking from one room to another. Continuous Delivery favours the latter approach and setting up those feedback mechanisms early, but if we want to test an application under production-levels of traffic it can introduce more risk than we're comfortable with. Considering the following scenario:
+
+> A new commit has added a feature that enables an application to perform additional logic on a stream of events, but we don't know if this change will cause performance issues under production levels of traffic.
+
+If we don't have a load-testing environment, which we talk about in an earlier chapter, then one solution to this is to introduce a **weighted DNS** system for that application and hook it into the deployment process.
