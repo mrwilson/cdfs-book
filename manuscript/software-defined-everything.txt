@@ -14,4 +14,4 @@ All applications eventually need to make that step from Development to Productio
 
 > A new commit has added a feature that enables an application to perform additional logic on a stream of events, but we don't know if this change will cause performance issues under production levels of traffic.
 
-If we don't have a load-testing environment, which we talk about in an earlier chapter, then one solution to this is to introduce a **weighted DNS** system for that application and hook it into the deployment process.
+If we don't have a load-testing environment, which we talk about in an earlier chapter, then one solution to this is to introduce a **weighted DNS** system for that application and hook it into the deployment process. This way we can deploy an application and add it into rotation with the ability to ramp up levels of traffic as needed.
