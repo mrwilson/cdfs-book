@@ -1,0 +1,9 @@
+# Continuous Delivery in the world of Software-Defined Everything
+
+Feedback loops are a core principle of Continuous Delivery. They keep us aware of the outcomes of changes that we deliver, and we’re able to use them to inform which direction we go in next - whether that's as simple as writing a new test after finding a bug, to adding new features based on user feedback.
+
+Now that the software landscape seems to be shifting away from manually provisioned hardware and more towards the ubiquitous “Cloud” (through Platform-as-a-Service/Infrastructure-as-a-Service providers), it’s becoming far easier to easily set up these feedback mechanisms in our pipeline.
+
+During a talk at Extreme Programmers London, [Colin Humphreys](https://twitter.com/hatofmonkeys) talked about this concept in detail using his PaaS experiences and named it as “Software-Defined Everything” - via simple APIs and tools we're able to fold everything from the commit point to production feedback into our software development pipeline.
+
+So how do we take advantage of all these services?
