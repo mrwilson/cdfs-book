@@ -1,4 +1,4 @@
 {frontmatter}
 intro.txt
 {mainmatter}
-software-defined-everything.txt
+reduce-variance-increase-mean.txt

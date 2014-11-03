@@ -1,0 +1,19 @@
+# Reducing Variance, Increasing Mean
+
+When I speak about how I try and harmonise Continuous Delivery principles with the operations-focused areas of software development I often trot out this mantra of "Reduce Variance, Increase Mean". A common definition of mantra is a phrase or saying that encapsulates certain beliefs or practices in a simple way, but the problem with boiling them down to so little is that they often lose their meaning along the way. In this chapter, I'll be talking about what I mean when I talk about reducing variance and increasing mean in the context of software development and Continuous Delivery.
+
+The idea comes from a manufacturing discipline called [Six Sigma](https://en.wikipedia.org/wiki/Six_Sigma), developed at Motorola in the mid-80s and introduced to General Electric around 10 years later, based heavily on Plan-Do-Check-Act feedback loops. In particular it focuses on using statistical methods as a measurement of quality control, and draws its name from a high level of statistical certainty. To contrast, new discoveries and theories in physics such as the discovery of the Higgs Boson have to be proven within five sigmas to be accepted as true.
+
+There are two important notions here that we can creatively acquire (read: steal) to use when we're thinking about our Continuous Delivery pipelines. First, we can try and reduce variance across our development process. In particular we need to first tackle special-cause variation as opposed to common-cause variation (which is the second part, increasing the mean). A high level of special-cause variation means that the process being measured is unstable - this uncertainty flies in the face of the ideas of reproducibility and determinism that become increasily important as we grow our software. 
+
+But how can we do that if we don't know what are we optimising against? We should select measures of things that we are actively able to change and can monitor how they affect our pipeline. Consider the following example of applying these ideas and optimising against deployment time, assuming we are delivering in small incremental chunks. 
+
+> The last four deployments of an application have taken 20 minutes, 12 minutes, and 35 minutes, and 60 minutes.
+
+This immediately presents itself as a candidate for **reducing variance**. Of course there are no cure-all solutions to these problems which is why it's important to monitor and consume feedback, but the most likely culprits I've stumbled upon tend to include tests failing non-deterministically and calls to flaky external services. These two cases are easily solved using stub service calls and aggressive test quarantining/maintenance (deleting tests that have little to no value is rarely a bad thing), and we can force our example deployment to become much more consistent.
+
+> After these changes, the next four deployments have taken 15 minutes, 19 minutes, 16 minutes, 15 minutes.
+
+We can now proceed to part two: **increasing the mean** and getting rid of common-cause variation. Unlike special-cause variation which is caused by unknown factors acting unexpectedly, common-cause variation is the source of *constant* interference with our measure's average. Changing database tests to truncate tables instead of rebuilding an empty database is a good example of reducing common-cause variation because it will affect all such tests, attacking the mean and not the variance.
+
+If common-cause variation affects everything, then surely dealing with this will yield bigger rewards, so why not do this first? If we ignored special-cause variation and just concerned ourselves with common issues then we run the risk of incorrectly diagnosing the former as the latter and ending up with a local maximum rather than a global - we can make all our deploys five minutes faster but with the variance we started with the edge cases will still be unacceptably high.
