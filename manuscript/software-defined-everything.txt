@@ -1,4 +1,4 @@
-# Continuous Delivery in the world of Software-Defined Everything
+# Software-Defined Everything
 
 Feedback loops are a core principle of Continuous Delivery. They keep us aware of the outcomes of changes that we deliver, and we’re able to use them to inform which direction we go in next - whether that's as simple as writing a new test after finding a bug, to adding new features based on user feedback.
 
