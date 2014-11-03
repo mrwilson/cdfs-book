@@ -32,6 +32,7 @@ But if common-cause variation affects everything, then surely dealing with this 
 
 If we ignored special-cause variation and just concerned ourselves with common issues then we run the risk of incorrectly diagnosing the former as the latter and ending up with a local maximum rather than a global - we can make all our deploys five minutes faster but with the variance we started with the edge cases will still be unacceptably high. On the other hand, reducing special-cause variance beforehand means that we can focus our time on improving at a global level with confidence of a global effect.
 
+
 ## Optimising against an Effective Metric
 
 Applying RVIM is only beneficial if used to optimise a metric in a way that increases the value of that particular application. As the saying goes, time is money, and time-based metrics are among the easiest and most profitable to optimise against. A fast deploy keeps the feedback loops tight, but why not take it one step further and consider Full-Rebuild Time: for any running application, how quickly can you get another one into production and delivering value? 
