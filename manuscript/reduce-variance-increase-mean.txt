@@ -1,8 +1,8 @@
 # Reducing Variance, Increasing Mean
 
-When I speak about how I try and harmonise Continuous Delivery principles with the operations-focused areas of software development I often trot out this mantra of "Reduce Variance, Increase Mean". A common definition of mantra is a phrase or saying that encapsulates certain beliefs or practices in a simple way, but the problem with boiling them down to so little is that they often lose their meaning along the way. 
+Applying Continuous Delivery principles to the operations-focused areas of software development, I often trot out the mantra of "Reduce Variance, Increase Mean". A common definition of mantra is a phrase or saying that encapsulates certain beliefs or practices in a simple way, but the problem with boiling them down is that they often lose their subtleties. 
 
-In this chapter, I'll be talking about what I mean when I talk about reducing variance and increasing mean in the context of software development and Continuous Delivery.
+In this chapter, I'll show what I mean when I talk about reducing variance and increasing mean in the context of software development and Continuous Delivery.
 
 The idea comes from a manufacturing discipline called [Six Sigma](https://en.wikipedia.org/wiki/Six_Sigma), developed at Motorola in the mid-80s and introduced to General Electric around 10 years later, based heavily on Plan-Do-Check-Act feedback loops. In particular it focuses on using statistical methods as a measurement of quality control, and draws its name from a high level of statistical certainty. To contrast, new discoveries and theories in physics such as the discovery of the Higgs Boson have to be proven within five sigmas to be accepted as true.
 
@@ -10,7 +10,7 @@ But how can we do that if we don't know what are we optimising against? We shoul
 
 ## Part 1: Reducing Special-Cause Variation
 
-I define special-cause variation as *unknown factors introducing random interference into our measure*. A high level of special-cause variation means that the process being measured is unstable - this uncertainty flies in the face of the ideas of reproducibility and determinism that become increasily important as we grow our software. 
+I define special-cause variation as *unknown factors introducing random interference into our measure*. A high level of special-cause variation means that the process being measured is unstable and unpredictable. This uncertainty flies in the face of the ideas of reproducibility and determinism that become increasingly important as we grow our software. 
 
 Consider the following example of optimising against deployment time, assuming we are delivering in small incremental chunks. 
 
@@ -30,4 +30,12 @@ Unlike special-cause variation which is caused by unknown factors acting unexpec
 
 But if common-cause variation affects everything, then surely dealing with this will yield bigger rewards, so why not do this first? 
 
-If we ignored special-cause variation and just concerned ourselves with common issues then we run the risk of incorrectly diagnosing the former as the latter and ending up with a local maximum rather than a global - we can make all our deploys five minutes faster but with the variance we started with the edge cases will still be unacceptably high.
+If we ignored special-cause variation and just concerned ourselves with common issues then we run the risk of incorrectly diagnosing the former as the latter and ending up with a local maximum rather than a global - we can make all our deploys five minutes faster but with the variance we started with the edge cases will still be unacceptably high. On the other hand, reducing special-cause variance beforehand means that we can focus our time on improving at a global level with confidence of a global effect.
+
+## Optimising against an Effective Metric
+
+Applying RVIM is only beneficial if used to optimise a metric in a way that increases the value of that particular application. As the saying goes, time is money, and time-based metrics are among the easiest and most profitable to optimise against. A fast deploy keeps the feedback loops tight, but why not take it one step further and consider Full-Rebuild Time: for any running application, how quickly can you get another one into production and delivering value? 
+
+As an application scales up, the time between failures becomes far less important than how quickly you can recover from failures. After a certain point, applications will fail most of the time and fault-tolerance becomes an absolute necessity.
+
+The Continuous Delivery book talks about having *coffee-break build* - being able to build your application in the time it takes for a cup of coffee - and the idea of a *coffee-break deploy* is the next logical step. But what about a *coffee-break rebuild*? Can we deploy a change and rebuild an entire application in the time it takes to get a hot drink? In order to shrink our pipeline like this, we must apply RVIM to almost all time-based metrics within our pipeline. Compilation, unit tests, full integration tests, provisioning environments, application deployment, everything. All of these steps will need to be fully automated and monitored, which for large applications can be a Herculean task. Luckily, we have a huge toolbox provided to us by the trend of Software-Defined Everything.
