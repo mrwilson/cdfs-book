@@ -2,4 +2,3 @@
 intro.txt
 {mainmatter}
 reduce-variance-increase-mean.txt
-software-defined-everything.txt
