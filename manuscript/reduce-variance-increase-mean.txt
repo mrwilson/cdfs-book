@@ -12,7 +12,7 @@ But how can we do that if we don't know what are we optimising against? We shoul
 
 I define special-cause variation as *unknown factors introducing random interference into our measure*. A high level of special-cause variation means that the process being measured is unstable and unpredictable. This uncertainty flies in the face of the ideas of reproducibility and determinism that become increasingly important as we grow our software. 
 
-Consider the following example of optimising against deployment time, assuming we are delivering in small incremental chunks. 
+Consider the following example of optimising against deployment time, assuming we are delivering in small incremental chunks.
 
 > The last four deployments of an application have taken 20 minutes, 12 minutes, and 35 minutes, and 60 minutes.
 
@@ -22,7 +22,7 @@ Of course there are no cure-all solutions to these problems which is why it's im
 
 > After these changes, the next four deployments have taken 15 minutes, 19 minutes, 16 minutes, 15 minutes.
 
-We can now proceed to part two: **increasing the mean** and getting rid of common-cause variation. 
+But this is only half the battle, once we've aggressively moved our metrics towards the mean. The other half is then *moving the mean*.
 
 ## Part 2: Reducing Common-Cause Variation
 
@@ -44,4 +44,4 @@ In order to shrink our pipeline like this, we must apply RVIM to almost all time
 
 ## Applied to Infrastructure
 
-Time-based metrics are among the lowest hanging fruit to build metrics and feedback around but we can be more conceptual with these ideas. How about using the difference between different instances of our production environment as our measure? Running different versions of Apache, Tomcat, or PostgreSQL in the same application stack should be a smell. Running applications on different virtual instances should probably be a smell too. We can act against this *configuration drift* by being extremely aggressive with rebuilding and reprovisioning instances - luckily Software-Defined Everything can help us out here too. 
+Time-based metrics are among the lowest hanging fruit to build metrics and feedback around but we can be more conceptual with these ideas. How about using the difference between different instances of our production environment as our measure? Running different versions of Apache, Tomcat, or PostgreSQL in the same application stack should be a smell. Running applications on different virtual instances should probably be a smell too. We can act against this *configuration drift* by being extremely aggressive with rebuilding and reprovisioning instances - luckily automation and software-defined everything can help us out here too.
