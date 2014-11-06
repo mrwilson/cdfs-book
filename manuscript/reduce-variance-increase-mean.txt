@@ -42,6 +42,6 @@ In [eXtreme Programming Explained](https://www.goodreads.com/book/show/67833.Ext
 
 In order to shrink our pipeline like this, we must apply RVIM to almost all time-based metrics within our pipeline. Compilation, unit tests, full integration tests, provisioning environments, application deployment, everything. All of these steps will need to be fully automated and monitored, which for large applications can be a Herculean task. Luckily, we have a huge toolbox provided to us by the trend of Software-Defined Everything which I cover later on.
 
-## Applied to Infrastructure
-
 Time-based metrics are among the lowest hanging fruit to build metrics and feedback around but we can be more conceptual with these ideas. How about using the difference between different instances of our production environment as our measure? Running different versions of Apache, Tomcat, or PostgreSQL in the same application stack should be a smell. Running applications on different virtual instances should probably be a smell too. We can act against this *configuration drift* by being extremely aggressive with rebuilding and reprovisioning instances - luckily automation and software-defined everything can help us out here too.
+
+A word of caution: be wary of making these metrics into solid targets. They are signposts, gesturing us in the right direction to solve our next problems, rather than something we need to reduce because low values are inherently good. It's easy to speed up test runs: remove all the tests. This is obviously a terrible idea but demonstrates the idea of metrics being targets as opposed to a source of guidance.
