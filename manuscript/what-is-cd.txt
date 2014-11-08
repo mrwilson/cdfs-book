@@ -2,9 +2,9 @@
 
 Out of sheer luck, the first job I got after finishing university was a company where the Development Team were strong believers in Continuous Delivery and the necessary culture had been baked in from the start. Within the first few days there I would learn that all of the things that I thought made sense from writing software during my leisure time - informal tests, small changesets - were actually solid design and coding principles.
 
-Continuous Delivery on the other hand wasn’t something I knew about during my years of studying computer science - most universities barely teach Waterfall, let alone Agile - but once I understood its core principles I was almost instantly sold.
+Continuous Delivery on the other hand wasn’t something I knew about during my university education but once I understood its core principles I was almost instantly sold.
 
-At its heart, Continuous Delivery is about the regular delivery of small chunks of software that add incremental value, often mixed up with Continuous Deployment and Continuous Integration, and actually takes ideas and values from both of these techniques which I’ll cover later. The seminal book on this topic is “Continuous Delivery: Reliable Software Releases Through Build, Test, and Deployment Automation” by Jez Humble and Dave Farley which discusses most of these points in further detail.
+At its heart, **Continuous Delivery is about the regular delivery of small chunks of software that add incremental value**, often mixed up with Continuous Deployment and Continuous Integration, and actually takes ideas and values from both of these techniques which I’ll cover later. The seminal book on this topic is “Continuous Delivery: Reliable Software Releases Through Build, Test, and Deployment Automation” by Jez Humble and Dave Farley which discusses most of these points in further detail.
 
 But why deliver small bits of functionality rather than deploy entire features as required by the stakeholders and other people interested in the outcome of the software? The benefits work in both directions: increasing value delivered whilst also reducing exposure to risk. In this way it ties quite tightly into the ideologies of Lean software development.
 
