@@ -18,17 +18,17 @@ Now let’s look at this example as if you were practising Continuous Delivery -
 
 This will almost certainly involve some feature-reduced steps at first but it enables you to ensure at each stage that the customer is satisfied with the current output. You’re reducing your exposure to unnecessary risk by building the minimal amount of software at each stage that satisfies the customer and Continuously Delivering these increments.
 
-So if (or should I say when) the customer changes their mind about what they were wanting you’ve not committed yourself to 3 months of immovable work. This example highlights one of the core components of a successful Continuous Delivery implementation which is the Feedback Loop.
+So if (or should I say when) the customer changes their mind about what they were wanting you’ve not committed yourself to 3 months of immovable work. This example highlights one of the core components of a successful Continuous Delivery implementation: the Feedback Loop.
 
 ## Feedback Loops
 
-Did you realise exactly when in the previous section’s example the two software development methodologies diverged from each other? It was where Continuous Delivery enabled the deployment of the first piece of the final feature. That deployment could have been anything on the spectrum: a simple webpage with no functionality, or a minimal feature implementation with no user interface.
+Did you realise exactly when in the previous section’s example the two software development methodologies diverged from each other? It was where Continuous Delivery enabled the deployment of the first piece of the final feature. That deployment will have been something small: a simple webpage with no functionality, or a minimal feature implementation with no user interface.
 
-As this feature now exists for the customer to examine and interact with, they are in the position to deliver feedback to the software development teams - such feedback is not always positive (“I hate it, this isn’t what I wanted at all!”) but it is always valuable. With this new information under your belt the next step can be altered or even removed entirely!
+As part of the overall feature now exists for the customer to examine and interact with, they are in the position to deliver feedback to the software development teams - such feedback is not always positive (“I hate it, this isn’t what I wanted at all!”) but it *is* always valuable. With this new information under your belt the next step can be altered or even removed entirely!
 
 The existence of this feedback loop between the customer and development team(s) has immediately yielded value in the form of not wasting time building software that the customer doesn’t want, and you can keep evaluating this feedback loop after every small piece of functionality delivered.
 
-Continuous Delivery then is about these feedback loops, establishing these self-monitoring practices, in all aspects of the software development pipeline - from the individual lines of code written all the way to inspecting that the customer is receiving the value that they desire. Below is a simple Continuous Delivery "pipeline" as an example.
+Continuous Delivery then is about these feedback loops, establishing these self-monitoring practices, in all phases of the software development pipeline - from the individual lines of code written all the way to inspecting that the customer is receiving the value that they desire. Below is a simple Continuous Delivery "pipeline" as an example.
 
 ![](images/pipeline.png)
 
