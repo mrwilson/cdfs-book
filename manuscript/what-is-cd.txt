@@ -28,7 +28,9 @@ As this feature now exists for the customer to examine and interact with, they a
 
 The existence of this feedback loop between the customer and development team(s) has immediately yielded value in the form of not wasting time building software that the customer doesn’t want, and you can keep evaluating this feedback loop after every small piece of functionality delivered.
 
-Continuous Delivery then is about these feedback loops, establishing these self-monitoring practices, in all aspects of the software development pipeline - from the individual lines of code written all the way to inspecting that the customer is receiving the value that they desire.
+Continuous Delivery then is about these feedback loops, establishing these self-monitoring practices, in all aspects of the software development pipeline - from the individual lines of code written all the way to inspecting that the customer is receiving the value that they desire. Below is a simple Continuous Delivery "pipeline" as an example.
+
+![](images/pipeline.png)
 
 In this book I’ll be talking about and giving examples of the Continuous Delivery values and principles that I’ve found essential in reliably delivering quality software, how to introduce them into both existing and greenfield projects (as there are substantially more of the former!), and outlining some techniques and practices for taking Continuous Delivery to the next level.
 
