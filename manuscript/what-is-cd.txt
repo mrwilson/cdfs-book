@@ -1,0 +1,34 @@
+# What is Continuous Delivery?
+
+Out of sheer luck, the first job I got after finishing university was a company where the Development Team were strong believers in Continuous Delivery and the necessary culture had been baked in from the start. Within the first few days there I would learn that all of the things that I thought made sense from writing software during my leisure time - informal tests, small changesets - were actually solid design and coding principles.
+
+Continuous Delivery on the other hand wasn’t something I knew about during my years of studying computer science - most universities barely teach Waterfall, let alone Agile - but once I understood its core principles I was almost instantly sold.
+
+At its heart, Continuous Delivery is about the regular delivery of small chunks of software that add incremental value, often mixed up with Continuous Deployment and Continuous Integration, and actually takes ideas and values from both of these techniques which I’ll cover later. The seminal book on this topic is “Continuous Delivery: Reliable Software Releases Through Build, Test, and Deployment Automation” by Jez Humble and Dave Farley which discusses most of these points in further detail.
+
+But why deliver small bits of functionality rather than deploy entire features as required by the stakeholders and other people interested in the outcome of the software? The benefits work in both directions: increasing value delivered whilst also reducing exposure to risk. In this way it ties quite tightly into the ideologies of Lean software development.
+
+To illustrate this point, I give a toy example: a customer requires a new feature that you estimate will take 3 months to develop. If everything goes to plan (which barely anything ever does), you do all the planning, write all the code, and deliver a feature-complete piece of software at the end of the three months only to find that the customer wants something entirely different. 3 months wasted? It’s very likely.
+
+![Single end-of-project delivery](images/single-delivery.png)
+
+Now let’s look at this example as if you were practising Continuous Delivery - at each stage, delivering the minimal amount of functionality needed to get incremental feedback from the customer. 
+
+![Continuous delivery](images/continuous-delivery.png)
+
+This will almost certainly involve some feature-reduced steps at first but it enables you to ensure at each stage that the customer is satisfied with the current output. You’re reducing your exposure to unnecessary risk by building the minimal amount of software at each stage that satisfies the customer and Continuously Delivering these increments.
+
+So if (or should I say when) the customer changes their mind about what they were wanting you’ve not committed yourself to 3 months of immovable work. This example highlights one of the core components of a successful Continuous Delivery implementation which is the Feedback Loop.
+
+## Feedback Loops
+
+Did you realise exactly when in the previous section’s example the two software development methodologies diverged from each other? It was where Continuous Delivery enabled the deployment of the first piece of the final feature. That deployment could have been anything on the spectrum: a simple webpage with no functionality, or a minimal feature implementation with no user interface.
+
+As this feature now exists for the customer to examine and interact with, they are in the position to deliver feedback to the software development teams - such feedback is not always positive (“I hate it, this isn’t what I wanted at all!”) but it is always valuable. With this new information under your belt the next step can be altered or even removed entirely!
+
+The existence of this feedback loop between the customer and development team(s) has immediately yielded value in the form of not wasting time building software that the customer doesn’t want, and you can keep evaluating this feedback loop after every small piece of functionality delivered.
+
+Continuous Delivery then is about these feedback loops, establishing these self-monitoring practices, in all aspects of the software development pipeline - from the individual lines of code written all the way to inspecting that the customer is receiving the value that they desire.
+
+In this book I’ll be talking about and giving examples of the Continuous Delivery values and principles that I’ve found essential in reliably delivering quality software, how to introduce them into both existing and greenfield projects (as there are substantially more of the former!), and outlining some techniques and practices for taking Continuous Delivery to the next level.
+

@@ -1,4 +1,4 @@
 {frontmatter}
 intro.txt
 {mainmatter}
-reduce-variance-increase-mean.txt
+what-is-cd.txt
