@@ -2,7 +2,7 @@
 
 The values of Continuous Delivery are more important than their implementation details or choice of tooling, and these things are often conflated or mistaken for each other. Simplicity is on our side however as the central values of Continuous Delivery are easy to understand and just as easy to implement in your workflow.
 
-In order to demonstrate this, we’ll go step-by-step through the inception of a simple project and how to go about establishing our feedback cycle quickly, after which we’ll take the project into different theoretical problems and how we solve those in a way that’s consistent with the Continuous Delivery principles.
+In order to demonstrate this, we’ll go step-by-step through the inception of a simple project accompanied by some short code examples and examine how to establishing our feedback cycle quickly, after which we’ll take the project into different theoretical problems and how we solve those in a way that’s consistent with the Continuous Delivery principles.
 
 So let’s take a look at our product specification
 
@@ -34,4 +34,14 @@ There are key points in Continuous Delivery that overlap with the ideas of [Lean
 
 To set up the feedback loops that are so integral to Continuous Delivery, we start the idea of a walking skeleton - the minimal working deployment of a product that you can deploy to a production environment to start getting feedback as quickly as possible.
 
-As an example, what’s the minimum amount of work necessary for this MVP? You’re going to be setting up a simple web application, but these are easy to deploy walking skeletons for - a single endpoint that just returns “Hello, World!” will suffice.
+As an example, what’s the minimum amount of work necessary for this MVP? You’re going to be setting up a simple web application, but these are easy to deploy walking skeletons for - a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Spark](http://sparkjava.com/) web microframework for Java (other equivalent frameworks exist for other languages).
+
+```java
+import static spark.Spark.*;
+
+public class ToDoApp {
+    public static void main(String[] args) {
+        get("/", (req, res) -> "Hello World");
+    }
+}
+```
