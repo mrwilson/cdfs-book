@@ -18,7 +18,7 @@ There are plenty of options available in two distinct flavours - decentralised a
 
 **Centralised** version control has a single canonical centralised repository which all code is committed to. Examples include [Subversion](https://subversion.apache.org/) and [Perforce](http://www.perforce.com/)
 
-**Decentralised** version control does not have a centralised canonical repository (although sites like [GitHub]() and [BitBucket]() enable it to work this way) and by-and-large any copy of the repository has the complete history and can push/pull to any other. Examples include [Git](http://git-scm.com/), [Mercurial](http://mercurial.selenic.com/), and [Bazaar](http://bazaar.canonical.com/).
+**Decentralised** version control does not have a centralised canonical repository (although sites like GitHub and BitBucket enable it to work this way) and by-and-large any copy of the repository has the complete history and can push/pull to any other. Examples include [Git](http://git-scm.com/) and [Mercurial](http://mercurial.selenic.com/).
 
 I won’t try and extol the virtues of any of these over any of the others because different workflows demand different features from their version control software, but **git** is a solid choice for starting out.
 
