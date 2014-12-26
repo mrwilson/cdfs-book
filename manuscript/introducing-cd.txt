@@ -30,18 +30,24 @@ git init
 
 ### Walking Skeletons
 
-There are key points in Continuous Delivery that overlap with the ideas of [Lean Software Development](https://en.wikipedia.org/wiki/Lean_software_development), most notably *deliver as fast as possible* and *build integrity in*.
+There are key points in Continuous Delivery that overlap with the ideas of Lean Software Development, most notably *deliver as fast as possible* and *build integrity in*. To set up the feedback loops that are so integral to Continuous Delivery, we present the concept of the *walking skeleton*. According to [Alistair Cockburn’s](http://alistair.cockburn.us/Walking+skeleton) definition
 
-To set up the feedback loops that are so integral to Continuous Delivery, we start the idea of a walking skeleton - the minimal working deployment of a product that you can deploy to a production environment to start getting feedback as quickly as possible.
+> A walking skeleton is a tiny implementation of the system that performs a small end-to-end function.
 
-As an example, what’s the minimum amount of work necessary for this MVP? You’re going to be setting up a simple web application, but these are easy to deploy walking skeletons for - a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Spark](http://sparkjava.com/) web microframework for Java (other equivalent frameworks exist for other languages).
+An alternative phrasing of this is *the minimal deployment of a product that fulfils one simple acceptance criteria* - for the case of the ToDo application, you might have the minimum requirement of a web-service that stores To-Dos without user authentication (yet). But to get started in a continuous delivery cycle, you can even be radical. The minimal piece of working code that could possibly be in production would be a *web-service that responds to calls*.
 
-```java
-import static spark.Spark.*;
+We can even skip writing tests! A single endpoint that replies in a deterministic way would be a waste of time to test in this context, since it’s purpose is to be the entry point into the pipeline detailed in the previous chapter, not to provide user functionality.
 
-public class ToDoApp {
-    public static void main(String[] args) {
-        get("/", (req, res) -> "Hello World");
-    }
-}
+Since this is going to be setting up a simple web application, a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Flask](http://flask.pocoo.org/) web microframework for Python (other equivalent frameworks exist for other languages).
+
+```python
+from flask import Flask
+
+app = Flask(“to-do-app”)
+
+@app.route("/to-do")
+def get_todos():
+  return "Hello World!"
+
+app.run()
 ```
