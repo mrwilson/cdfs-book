@@ -1,0 +1,37 @@
+# Introducing Continuous Delivery to your Workflow
+
+The values of Continuous Delivery are more important than their implementation details or choice of tooling, and these things are often conflated or mistaken for each other. Simplicity is on our side however as the central values of Continuous Delivery are easy to understand and just as easy to implement in your workflow.
+
+In order to demonstrate this, we’ll go step-by-step through the inception of a simple project and how to go about establishing our feedback cycle quickly, after which we’ll take the project into different theoretical problems and how we solve those in a way that’s consistent with the Continuous Delivery principles.
+
+So let’s take a look at our product specification
+
+> A senior stakeholder has come to you and told you to drop your current project in favour of a new To-Do list app, convinced that it’s the Next Big Thing.
+
+You don’t need anything complex to implement Continuous Delivery on a green-field project -  a fully functioning Continuous Delivery pipeline can be built on the minimal foundations of **version control** and a **walking skeleton**, powered by **automation**.
+
+## Version Control
+
+If you’re not using version control, why aren’t you using version control?! Using any form of version control gives you an easy way to share code with other people in your company, exert control over the history of the source code of your project, and provides an easily auditable trail to see exactly who has committed what and when.
+
+There are plenty of options available in two distinct flavours - decentralised and centralised.
+
+**Centralised** version control has a single canonical centralised repository which all code is committed to. Examples include [Subversion](https://subversion.apache.org/) and [Perforce](http://www.perforce.com/)
+
+**Decentralised** version control does not have a centralised canonical repository (although sites like [GitHub]() and [BitBucket]() enable it to work this way) and by-and-large any copy of the repository has the complete history and can push/pull to any other. Examples include [Git](http://git-scm.com/), [Mercurial](http://mercurial.selenic.com/), and [Bazaar](http://bazaar.canonical.com/).
+
+I won’t try and extol the virtues of any of these over any of the others because different workflows demand different features from their version control software, but **git** is a solid choice for starting out.
+
+```bash
+mkdir -p ~/projects/to-do-app
+cd ~/projects/to-do-app
+git init
+```
+
+### Walking Skeletons
+
+There are key points in Continuous Delivery that overlap with the ideas of [Lean Software Development](https://en.wikipedia.org/wiki/Lean_software_development), most notably *deliver as fast as possible* and *build integrity in*.
+
+To set up the feedback loops that are so integral to Continuous Delivery, we start the idea of a walking skeleton - the minimal working deployment of a product that you can deploy to a production environment to start getting feedback as quickly as possible.
+
+As an example, what’s the minimum amount of work necessary for this MVP? You’re going to be setting up a simple web application, but these are easy to deploy walking skeletons for - a single endpoint that just returns “Hello, World!” will suffice.

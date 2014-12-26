@@ -2,3 +2,4 @@
 intro.txt
 {mainmatter}
 what-is-cd.txt
+introducing-cd.txt
