@@ -22,12 +22,6 @@ There are plenty of options available in two distinct flavours - decentralised a
 
 I won’t try and extol the virtues of any of these over any of the others because different workflows demand different features from their version control software, but **git** is a solid choice for starting out.
 
-```bash
-mkdir -p ~/projects/to-do-app
-cd ~/projects/to-do-app
-git init
-```
-
 ### Walking Skeletons
 
 There are key points in Continuous Delivery that overlap with the ideas of Lean Software Development, most notably *deliver as fast as possible* and *build integrity in*. To set up the feedback loops that are so integral to Continuous Delivery, we present the concept of the *walking skeleton*. According to [Alistair Cockburn’s](http://alistair.cockburn.us/Walking+skeleton) definition
@@ -38,7 +32,7 @@ An alternative phrasing of this is *the minimal deployment of a product that ful
 
 We can even skip writing tests! A single endpoint that replies in a deterministic way would be a waste of time to test in this context, since it’s purpose is to be the entry point into the pipeline detailed in the previous chapter, not to provide user functionality.
 
-Since this is going to be setting up a simple web application, a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Flask](http://flask.pocoo.org/) web microframework for Python (other equivalent frameworks exist for other languages).
+Since this is going to be setting up a simple web application, a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Flask](http://flask.pocoo.org/) web microframework for Python (other equivalent frameworks exist for other languages), in a file we'll refer to as `app.py`
 
 ```python
 from flask import Flask
@@ -50,4 +44,19 @@ def get_todos():
   return "Hello World!"
 
 app.run()
+```
+
+So now we have a working bit of code, but code that's not in production is not providing any value - it is literally valueless. Let's try and remedy that by setting up a deployment shell script. Why use a shell script? This is an incredibly simple task and it does not need an over-engineered deployment solution (yet). The important part is minimising the time it takes from code commit to deployment at this stage. This leads us neatly into our next topic: automiation.
+
+### Automation
+
+The ability to automate
+
+```bash
+PACKAGES="python python-flask"
+ssh server.example.com apt-get install ${PACKAGES}
+
+scp app.py server.example.com:/var/tmp/
+
+ssh server.example.com python /var/tmp/app.py
 ```
