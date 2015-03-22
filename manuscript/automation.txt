@@ -1,0 +1,12 @@
+### Automation
+
+The ability to automate
+
+```bash
+PACKAGES="python python-flask"
+ssh server.example.com apt-get install ${PACKAGES}
+
+scp app.py server.example.com:/var/tmp/
+
+ssh server.example.com python /var/tmp/app.py
+```

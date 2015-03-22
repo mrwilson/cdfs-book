@@ -3,3 +3,6 @@ intro.txt
 {mainmatter}
 what-is-cd.txt
 introducing-cd.txt
+version-control.txt
+walking-skeletons.txt
+automation.txt

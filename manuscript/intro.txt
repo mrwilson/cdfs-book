@@ -1,9 +1,9 @@
 # Introduction {#introduction}
 
-It's hard to pin down when and where I first got the idea for **Continuous Delivery from Scratch**. This year I had the privilege of attending multiple conferences to speak about and discuss Continuous Delivery, in addition to contributing to [Build Quality In](https://leanpub.com/buildqualityin), an e-book of experience reports about Continuous Delivery and DevOps.
+It's hard to pin down when and where I first got the idea for **Continuous Delivery from Scratch** -  I've had the privilege of discussing Continuous Delivery at several conference. In addition, I contributed to [Build Quality In](https://leanpub.com/buildqualityin), an e-book of experience reports about Continuous Delivery and DevOps.
 
-The tipping point was November 2014, which is National Novel Writing Month or [NaNoWriMo](http://nanowrimo.org/) and with the experience of having participated in one Leanpub book already combined with thoughts and ideas buzzing around in my head it was time to commit all of them to paper.
+In November 2014, which is [National Novel Writing Month](http://nanowrimo.org/), it was time to commit all of the thoughts and ideas buzzing around in my head to paper.
 
 Although the title claims the book will be about Continuous Delivery, and it will in it's majority, this will be a venue to also publish my thoughts about Lean software development, Agile methodologies, Extreme Programming, and "DevOps" to name a few.
 
-I don't intend for this to be finished in 30 days - much like adding features to software, I intend to keep adding content to this book as long as it delivers value to its readers, and I hope those readers will continue to take something away from the ideas in these pages.
+I never intended for this to be finished in 30 days - much like adding features to software, I intend to keep adding content to this book as long as it delivers value to its readers. I hope those same readers will take something away from the ideas in these pages as long as it continues to be updated.

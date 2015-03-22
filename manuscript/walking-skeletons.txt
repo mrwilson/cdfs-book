@@ -1,0 +1,27 @@
+## Walking Skeletons
+
+There are key points in Continuous Delivery that overlap with the ideas of Lean Software Development, notably *deliver as fast as possible* and *build integrity in*. Setting up feedback loops is integral to Continuous Delivery, so we present the concept of the *walking skeleton* as a way of starting out. According to [Alistair Cockburn's](http://alistair.cockburn.us/Walking+skeleton) definition.
+
+> A walking skeleton is a tiny implementation of the system that performs a small end-to-end function.
+
+An alternative phrasing of this is *the minimal deployment of a product that fulfils one simple acceptance criteria*. The ToDo-List app might have the minimum requirement of a web-service that stores To-Dos without user authentication.
+
+ But to get started in a Continuous Delivery cycle, you can be even more radical. The minimal piece of working code that could possibly be in production would be a *web-service that responds to calls*.
+
+We can even skip writing tests! A single endpoint that replies in a deterministic way would be a waste of time to test in this context, since it's purpose is to be the entry point into the pipeline detailed in the previous chapter, not to provide user functionality.
+
+Since this is going to be setting up a simple web application, a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Flask](http://flask.pocoo.org/) web microframework for Python (other equivalent frameworks exist for other languages), in a file we'll refer to as `app.py`
+
+```python
+from flask import Flask
+
+app = Flask(“to-do-app”)
+
+@app.route("/to-do")
+def get_todos():
+  return "Hello World!"
+
+app.run()
+```
+
+So now we have a working bit of code, but code that's not in production is not providing any value - it is literally valueless. Let's try and remedy that by setting up a deployment shell script. Why use a shell script? This is an incredibly simple task and it does not need an over-engineered deployment solution (yet). The important part is minimising the time it takes from code commit to deployment at this stage. This leads us neatly into our next topic: automation.

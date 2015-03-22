@@ -1,62 +1,14 @@
 # Introducing Continuous Delivery to your Workflow
 
-The values of Continuous Delivery are more important than their implementation details or choice of tooling, and these things are often conflated or mistaken for each other. Simplicity is on our side however as the central values of Continuous Delivery are easy to understand and just as easy to implement in your workflow.
+The values of Continuous Delivery are more important than their implementation details or choice of tooling, and these things are often conflated or mistaken for each other. We should strive for simplicity at each step as the central values of Continuous Delivery are easy to understand and just as easy to implement in your workflow.
 
-In order to demonstrate this, we’ll go step-by-step through the inception of a simple project accompanied by some short code examples and examine how to establishing our feedback cycle quickly, after which we’ll take the project into different theoretical problems and how we solve those in a way that’s consistent with the Continuous Delivery principles.
+We'll go step-by-step through the inception of a simple project accompanied by some short code examples and examine how to establishing our feedback cycle quickly. After this we'll take the project into different theoretical problems and how we solve those in a way that's consistent with the Continuous Delivery principles.
 
-So let’s take a look at our product specification
+So let's take a look at our product specification
 
-> A senior stakeholder has come to you and told you to drop your current project in favour of a new To-Do list app, convinced that it’s the Next Big Thing.
+> A senior stakeholder has come to you and told you to drop your current project in favour of a new To-Do list app, convinced that it's the Next Big Thing.
 
-You don’t need anything complex to implement Continuous Delivery on a green-field project -  a fully functioning Continuous Delivery pipeline can be built on the minimal foundations of **version control** and a **walking skeleton**, powered by **automation**.
+You don't need anything complex to implement Continuous Delivery on a green-field project. A fully functioning Continuous Delivery pipeline can be built on the minimal foundations of **version control** and a **walking skeleton**, powered by **automation**.
 
-## Version Control
 
-If you’re not using version control, why aren’t you using version control?! Using any form of version control gives you an easy way to share code with other people in your company, exert control over the history of the source code of your project, and provides an easily auditable trail to see exactly who has committed what and when.
 
-There are plenty of options available in two distinct flavours - decentralised and centralised.
-
-**Centralised** version control has a single canonical centralised repository which all code is committed to. Examples include [Subversion](https://subversion.apache.org/) and [Perforce](http://www.perforce.com/)
-
-**Decentralised** version control does not have a centralised canonical repository (although sites like GitHub and BitBucket enable it to work this way) and by-and-large any copy of the repository has the complete history and can push/pull to any other. Examples include [Git](http://git-scm.com/) and [Mercurial](http://mercurial.selenic.com/).
-
-I won’t try and extol the virtues of any of these over any of the others because different workflows demand different features from their version control software, but **git** is a solid choice for starting out.
-
-### Walking Skeletons
-
-There are key points in Continuous Delivery that overlap with the ideas of Lean Software Development, most notably *deliver as fast as possible* and *build integrity in*. To set up the feedback loops that are so integral to Continuous Delivery, we present the concept of the *walking skeleton*. According to [Alistair Cockburn’s](http://alistair.cockburn.us/Walking+skeleton) definition
-
-> A walking skeleton is a tiny implementation of the system that performs a small end-to-end function.
-
-An alternative phrasing of this is *the minimal deployment of a product that fulfils one simple acceptance criteria* - for the case of the ToDo application, you might have the minimum requirement of a web-service that stores To-Dos without user authentication (yet). But to get started in a continuous delivery cycle, you can even be radical. The minimal piece of working code that could possibly be in production would be a *web-service that responds to calls*.
-
-We can even skip writing tests! A single endpoint that replies in a deterministic way would be a waste of time to test in this context, since it’s purpose is to be the entry point into the pipeline detailed in the previous chapter, not to provide user functionality.
-
-Since this is going to be setting up a simple web application, a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Flask](http://flask.pocoo.org/) web microframework for Python (other equivalent frameworks exist for other languages), in a file we'll refer to as `app.py`
-
-```python
-from flask import Flask
-
-app = Flask(“to-do-app”)
-
-@app.route("/to-do")
-def get_todos():
-  return "Hello World!"
-
-app.run()
-```
-
-So now we have a working bit of code, but code that's not in production is not providing any value - it is literally valueless. Let's try and remedy that by setting up a deployment shell script. Why use a shell script? This is an incredibly simple task and it does not need an over-engineered deployment solution (yet). The important part is minimising the time it takes from code commit to deployment at this stage. This leads us neatly into our next topic: automiation.
-
-### Automation
-
-The ability to automate
-
-```bash
-PACKAGES="python python-flask"
-ssh server.example.com apt-get install ${PACKAGES}
-
-scp app.py server.example.com:/var/tmp/
-
-ssh server.example.com python /var/tmp/app.py
-```
