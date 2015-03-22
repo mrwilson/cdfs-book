@@ -10,18 +10,72 @@ An alternative phrasing of this is *the minimal deployment of a product that ful
 
 We can even skip writing tests! A single endpoint that replies in a deterministic way would be a waste of time to test in this context, since it's purpose is to be the entry point into the pipeline detailed in the previous chapter, not to provide user functionality.
 
-Since this is going to be setting up a simple web application, a single endpoint that just returns “Hello, World!” will suffice - illustrated below using the [Flask](http://flask.pocoo.org/) web microframework for Python (other equivalent frameworks exist for other languages), in a file we'll refer to as `app.py`
+Since this is going to be setting up a simple web application, a single endpoint that just returns "Hello, World!" will suffice - illustrated below using the [Spark](http://sparkjava.com/) web micro-framework for Java (other equivalent frameworks exist for other languages), in a file we'll refer to as `app.py`
 
-```python
-from flask import Flask
+```java
+package uk.co.probablyfine.todo;
+import static spark.Spark.*;
 
-app = Flask(“to-do-app”)
-
-@app.route("/to-do")
-def get_todos():
-  return "Hello World!"
-
-app.run()
+public class App {
+  public static void main(String... args) {
+    get("/hello", (req, res) -> "Hello World");
+  }
+}
 ```
 
-So now we have a working bit of code, but code that's not in production is not providing any value - it is literally valueless. Let's try and remedy that by setting up a deployment shell script. Why use a shell script? This is an incredibly simple task and it does not need an over-engineered deployment solution (yet). The important part is minimising the time it takes from code commit to deployment at this stage. This leads us neatly into our next topic: automation.
+### Building your App
+
+A build tool is nearly a prerequisite in any complex software project. It can build your application from source code, package up artifacts, and orchestrate deployments. As with all kinds of tooling, it's best to choose a solution that operates smoothly with your chosen workflow. In the ToDo App examples, we'll use [Apache Maven](https://maven.apache.org/) - a common choice build tool Java build tool.
+
+We have only one requirements so far: the Spark framework is the one dependency the app depends on, and needs to be packaged with the project. This makes the configuration file relatively simple:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>uk.co.probablyfine</groupId>
+  <artifactId>todo-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4.1</version>
+        <configuration>
+          <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <mainClass>uk.co.probablyfine.todo.App</mainClass>
+            </manifest>
+          </archive>
+  		</configuration>
+  		<executions>
+  		  <execution>
+  			<id>make-assembly</id>
+  			<phase>package</phase>
+  			<goals>
+              <goal>single</goal>
+  		    </goals>
+  		  </execution>
+  	    </executions>
+  	  </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>2.1</version>
+    </dependency>
+  </dependencies>
+</project>
+```
+We're not done yet - code that's not in production is not providing any value. Let's remedy that by setting up a deployment shell script.
+
+Why use a shell script? This is an incredibly simple task and it does not need a complex deployment solution. The important part is minimising the time it takes from code commit to deployment at this stage. This leads us neatly into our next topic: automation.

@@ -9,6 +9,3 @@ So let's take a look at our product specification
 > A senior stakeholder has come to you and told you to drop your current project in favour of a new To-Do list app, convinced that it's the Next Big Thing.
 
 You don't need anything complex to implement Continuous Delivery on a green-field project. A fully functioning Continuous Delivery pipeline can be built on the minimal foundations of **version control** and a **walking skeleton**, powered by **automation**.
-
-
-
